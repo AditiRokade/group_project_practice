@@ -1,0 +1,75 @@
+Basic Operations: 2 days
+Intermediate Operations: 2 days
+Advanced Operations: 3 days
+
+
+### Basic Operations (Questions 1-10)
+
+1. Create a DataFrame
+   -Given the customers table, create a new DataFrame that includes only the customer ID, name, and country columns. Display the first 5 records.
+2. Read Parquet File
+   -Read the expanded customers dataset from Parquet format and display basic information about the DataFrame structure.
+3. Show Schema
+   -Display the schema of the products table, including all column names and their data types.
+4. Select Columns
+   -From the orders table, select only the order_date, customer_id, and total_amount columns. Sort the results by order_date.
+5. Filter Records
+   -Find all active customers from the USA who joined in 2023. Show their IDs, names, and join dates.
+6. Group By Operation
+   -Group the order_items table by product_id and calculate the total quantity sold for each product.
+7. Join Tables
+   -Join the orders and customers tables to show customer names alongside their order totals.
+8. Rename Columns
+   -Rename the 'total_amount' column in the orders table to 'order_total'.
+9. Handle Null Values
+   -Replace any null values in the products table with appropriate defaults (use 0 for numeric fields, 'unknown' for strings).
+10. Derived Column
+   -Add a new column 'order_year' to the orders table extracting the year from order_date.
+
+### Intermediate Operations (Questions 11-20)
+
+1. Window Functions
+   -Calculate the running total of sales for each customer over time using window functions.
+2. Date Operations
+   -Extract month-wise statistics from the orders table, including total sales and number of orders per month.
+3. Array Operations
+   -Create a new DataFrame containing unique combinations of categories and their corresponding product counts.
+4. Pivot Table
+   -Create a pivot table showing sales amounts grouped by category and month.
+5. Cross-tabulation
+   -Perform cross-tabulation between customer countries and order statuses.
+6. Large-scale Data
+   -Optimize memory usage when joining orders with order_items tables for large datasets.
+7. Skewed Data
+   -Handle skewed data distribution in the products table by implementing salting on the category_id column.
+8. MLlib Tasks
+   -Use MLlib to predict future sales based on historical order data.
+9. Performance Optimization
+   -Optimize joins between orders, order_items, and products tables using broadcast hints.
+10. File Formats
+   -Convert the customers table between Parquet and CSV formats while maintaining schema integrity.
+
+### Advanced Operations (Questions 21-30)
+
+1. ML Pipeline
+   -Build a classification model to predict high-value customers (> $5000 total spending) using features from the orders table.
+2. Optimization Techniques
+   -Implement partition pruning on the orders table using order_date for faster date-range queries.
+3. Memory Management
+   -Handle memory optimization when processing large order_item datasets with multiple aggregations.
+4. Error Handling
+   -Implement robust error handling for missing product IDs in the order_items table.
+5. Data Quality
+   -Validate data integrity across related tables (orders → order_items → products).
+6. Performance Tuning
+   -Optimize shuffle operations during aggregation of large-scale order data.
+7. Complex Aggregations
+   -Calculate rolling averages of sales amounts for each category over a 3-month window.
+8. Nested Structures
+   -Process nested JSON structures representing product hierarchies within categories.
+9. Real-time Processing
+   -Simulate streaming data ingestion for new orders and calculate real-time sales metrics.
+10. Data Partitioning
+   -Optimize partition strategy for the orders table using order_date and country.
+11. Cross-Join Optimization
+   -Optimize cross-joins between orders, order_items, and products tables using appropriate join strategies.
