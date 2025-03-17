@@ -1,0 +1,134 @@
+### Basic Operations (Questions 1-10)
+
+1. **Time Series Analysis**  - Create a DataFrame containing daily sales data for the past year
+  - Include columns for date, region, product_category, and sales_amount
+  - Generate sample data using random values between $1,000-$10,000
+  - Display the first 10 records with formatted currency values
+
+
+2. **Data Quality Check**  - Read a CSV file containing employee data
+  - Verify data integrity by checking for:
+                    - Invalid email formats
+    - Missing department codes
+    - Duplicate employee IDs
+    - Invalid salary ranges
+
+
+  - Display statistics about data quality issues found
+
+
+3. **Schema Evolution**  - Create a DataFrame representing historical customer interactions
+  - Add new columns for tracking engagement metrics
+  - Handle schema evolution when reading files from different dates
+  - Show how to maintain backward compatibility
+
+
+4. **Hierarchical Data Processing**  - Process organizational structure data with manager-employee relationships
+  - Create a recursive CTE to traverse the hierarchy
+  - Calculate team sizes and reporting chains
+  - Show management levels and spans of control
+
+
+5. **Data Masking**  - Create a sensitive customer data DataFrame
+  - Implement masking functions for:
+                    - Credit card numbers
+    - Email addresses
+    - Phone numbers
+    - Addresses
+
+
+  - Show both masked and unmasked versions
+
+
+6. **Event Timeline Analysis**  - Process log data from application events
+  - Track user journey patterns
+  - Calculate time spent between events
+  - Identify common navigation paths
+
+
+7. **Geographic Data Processing**  - Work with location-based sales data
+  - Calculate distances between points
+  - Aggregate sales by geographic regions
+  - Create spatial aggregations
+
+
+8. **Audit Trail Analysis**  - Process transaction history with change tracking
+  - Track modifications to records
+  - Calculate change frequencies
+  - Identify patterns in updates
+
+
+9. **Data Lineage Tracking**  - Create a DataFrame representing data transformation pipeline
+  - Track source-to-target mappings
+  - Calculate data freshness metrics
+  - Show transformation dependencies
+
+
+10. **Compliance Reporting**  - Generate reports meeting regulatory requirements
+  - Implement data validation rules
+  - Create audit-ready summaries
+  - Export reports in required formats
+
+
+
+### Intermediate Operations (Questions 11-20)
+
+1. **Session Window Analysis**  - Analyze user session behavior
+  - Calculate session durations
+  - Identify active periods
+  - Track session patterns
+
+
+2. **Resource Utilization**  - Monitor system resource metrics
+  - Track CPU, memory, and disk usage
+  - Calculate utilization trends
+  - Identify bottlenecks
+
+
+3. **Pattern Recognition**  - Detect patterns in transaction sequences
+  - Identify recurring events
+  - Calculate pattern frequencies
+  - Show pattern evolution
+
+
+4. **Network Analysis**  - Analyze connection patterns between entities
+  - Calculate centrality measures
+  - Identify clusters
+  - Track relationship strengths
+
+
+5. **Text Processing**  - Process unstructured text data
+  - Implement sentiment analysis
+  - Extract keywords
+  - Track topic trends
+
+
+6. **Time Zone Handling**  - Process global event data
+  - Convert timestamps across zones
+  - Aggregate by local time
+  - Handle daylight savings
+
+
+7. **Data Standardization**  - Standardize inconsistent data formats
+  - Normalize values
+  - Handle unit conversions
+  - Maintain conversion history
+
+
+8. **Cache Optimization**  - Optimize DataFrame caching strategies
+  - Implement cache invalidation
+  - Track cache effectiveness
+  - Show memory optimization benefits
+
+
+9. **Query Optimization**  - Optimize complex queries
+  - Implement predicate pushdown
+  - Use projection optimization
+  - Show performance improvements
+
+
+10. **Data Validation Rules**  - Implement business rule validation
+  - Track validation failures
+  - Calculate compliance rates
+  - Show rule effectiveness
+

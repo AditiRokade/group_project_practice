@@ -1,0 +1,103 @@
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import *
+from pyspark.sql.types import *
+import random
+from datetime import datetime, timedelta
+
+# Create Spark Session
+spark = SparkSession.builder \
+    .appName("Retail Dataset Creation") \
+    .config("spark.sql.shuffle.partitions", "4") \
+    .getOrCreate()
+
+# Create helper functions for data generation
+def random_date(start_date, end_date):
+    time_between_dates = end_date - start_date
+    days_between_dates = time_between_dates.days
+    random_number_of_days = random.randrange(days_between_dates)
+    return start_date + timedelta(days=random_number_of_days)
+
+def generate_random_price():
+    return round(random.uniform(10.0, 1000.0), 2)
+
+def generate_random_status():
+    statuses = ['PENDING', 'SHIPPED', 'DELIVERED', 'CANCELLED', 'RETURNED']
+    return random.choice(statuses)
+
+def generate_random_category():
+    categories = ['ELECTRONICS', 'CLOTHING', 'HOME GOODS', 'FOOD', 'SPORTS']
+    return random.choice(categories)
+
+# Generate customer data
+customer_data = []
+countries = ['USA', 'Canada', 'Mexico', 'UK', 'Germany', 'France', 'Japan', 'Australia']
+for cust_id in range(1, 1001):
+    customer_data.append({
+        'customer_id': cust_id,
+        'name': f'Customer_{cust_id}',
+        'email': f'customer_{cust_id}@example.com',
+        'country': random.choice(countries),
+        'join_date': random_date(datetime(2022, 1, 1), datetime(2024, 3, 17)),
+        'is_active': random.random() > 0.1,  # 90% active customers
+        'loyalty_points': random.randint(0, 10000)
+    })
+
+# Generate product data
+product_data = []
+for prod_id in range(1, 501):
+    product_data.append({
+        'product_id': prod_id,
+        'name': f'Product_{prod_id}',
+        'category': generate_random_category(),
+        'price': generate_random_price(),
+        'stock_quantity': random.randint(0, 1000),
+        'description': f'Description for Product_{prod_id}',
+        'created_date': random_date(datetime(2022, 1, 1), datetime(2024, 3, 17))
+    })
+
+# Generate order data
+order_data = []
+start_date = datetime(2023, 1, 1)
+end_date = datetime(2024, 3, 17)
+for order_id in range(1, 5001):
+    customer_id = random.randint(1, 1000)
+    order_date = random_date(start_date, end_date)
+    order_data.append({
+        'order_id': order_id,
+        'customer_id': customer_id,
+        'order_date': order_date,
+        'total_amount': generate_random_price() * random.randint(1, 5),
+        'status': generate_random_status(),
+        'shipping_address': f"{random.randint(1, 1000)} Street_{random.randint(1, 100)}",
+        'order_year': order_date.year,
+        'order_month': order_date.month
+    })
+
+# Generate order items data
+order_items_data = []
+for order_id in range(1, 5001):
+    num_items = random.randint(1, 5)
+    for item in range(num_items):
+        product_id = random.randint(1, 500)
+        order_items_data.append({
+            'order_id': order_id,
+            'product_id': product_id,
+            'quantity': random.randint(1, 10),
+            'unit_price': generate_random_price()
+        })
+
+# Create DataFrames
+customers_df = spark.createDataFrame(customer_data)
+products_df = spark.createDataFrame(product_data)
+orders_df = spark.createDataFrame(order_data)
+order_items_df = spark.createDataFrame(order_items_data)
+
+# Display sample data
+print("Customers Sample:")
+customers_df.show(5)
+print("\nProducts Sample:")
+products_df.show(5)
+print("\nOrders Sample:")
+orders_df.show(5)
+print("\nOrder Items Sample:")
+order_items_df.show(5)
