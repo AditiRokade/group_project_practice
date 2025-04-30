@@ -1,0 +1,148 @@
+1. What is PySpark and its Architecture?
+
+PySpark is Python API for Apache Spark, allowing developers to work with large-scale data processing using Python programming language. It provides high-level APIs in Python and supports all Spark features including SQL, Streaming, MLlib, and GraphX.
+
+Key Components:
+
+- Python API Layer
+- RDD (Resilient Distributed Dataset)
+- DataFrame/Dataset API
+- SQL Engine
+- Execution Engine
+
+2. Explain RDD Operations in PySpark
+
+RDDs are fundamental data structures in PySpark that represent a collection of elements that can be split across nodes in the cluster for parallel processing. There are two types of operations:
+
+**Transformations**:
+
+- map()
+- filter()
+- flatMap()
+- union()
+- intersection()
+- distinct()
+
+**Actions**:
+
+- collect()
+- count()
+- first()
+- take()
+- reduce()
+
+3. What is DataFrame vs RDD?
+
+| Feature      | RDD                                | DataFrame                    |
+| ---          | ---                                | ---                          |
+| Schema       | No schema information              | Structured data with schema  |
+| Performance  | Slower due to Java object creation | Faster with columnar storage |
+| Memory Usage | Higher memory footprint            | Optimized memory usage       |
+| Type Safety  | No compile-time type checking      | Compile-time type safety     |
+| API Style    | Functional programming style       | SQL-like operations          |
+
+4. Explain PySpark SQL Concepts
+
+PySpark SQL introduces structured APIs for working with structured and semi-structured data:
+
+- DataFrames: Similar to tables in relational databases
+- Datasets: Type-safe, object-oriented API
+- Temporary Views: Temporary tables that exist during session
+- Global Tables: Permanent tables stored in catalog
+
+5. What is Caching in PySpark?
+
+Caching is a mechanism to store frequently accessed data in memory across nodes:
+
+```python
+# Cache DataFrame
+df.cache()
+
+# Use MEMORY_AND_DISK storage level
+df.persist(StorageLevel.MEMORY_AND_DISK)
+```
+
+Storage Levels:
+
+- MEMORY_ONLY
+- MEMORY_AND_DISK
+- DISK_ONLY
+- OFF_HEAP
+
+6. How Does PySpark Handle Data Partitioning?
+
+Data partitioning determines how data is distributed across nodes:
+
+- Default partitioning based on input source
+- Custom partitioning using repartition() or coalesce()
+- Range-based partitioning for sorted data
+- Hash-based partitioning for even distribution
+
+7. What is Broadcast Variables in PySpark?
+
+Broadcast variables optimize performance by sharing read-only variables across tasks:
+
+```python
+from pyspark.broadcast import Broadcast
+
+# Create broadcast variable
+broadcast_var = spark.sparkContext.broadcast(shared_data)
+
+# Access broadcast variable
+data = broadcast_var.value
+```
+
+8. Explain PySpark Accumulators
+
+Accumulators are shared variables that workers can add values to:
+
+```python
+# Create accumulator
+counter = sc.accumulator(0)
+
+# Use in RDD operation
+rdd.foreach(lambda x: counter.add(1))
+
+# Get final value
+print(counter.value)
+```
+
+9. What is PySpark UDF?
+
+User Defined Functions allow custom operations on DataFrame columns:
+
+```python
+from pyspark.sql.functions import udf
+from pyspark.sql.types import StringType
+
+@udf(returnType=StringType())
+def convert_to_uppercase(text):
+    return text.upper()
+
+df.withColumn("uppercase_name", convert_to_uppercase("name"))
+```
+
+10. Explain PySpark Performance Optimization Techniques
+
+Key optimization strategies:
+
+1. Data Processing
+  - Use DataFrames over RDDs
+  - Optimize partition sizes
+  - Minimize shuffle operations
+
+
+2. Memory Management
+  - Configure proper memory fractions
+  - Use appropriate cache storage levels
+  - Monitor memory usage
+
+
+3. Query Optimization
+  - Push predicates down
+  - Aggregate before join
+  - Use broadcast joins for smaller datasets
+
+
+
+Practice implementing these concepts with sample datasets to reinforce theoretical understanding. Focus on practical scenarios where each concept applies, especially caching, partitioning, and optimization techniques.
