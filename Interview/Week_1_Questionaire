@@ -142,7 +142,3 @@ Key optimization strategies:
   - Push predicates down
   - Aggregate before join
   - Use broadcast joins for smaller datasets
-
-
-
-Practice implementing these concepts with sample datasets to reinforce theoretical understanding. Focus on practical scenarios where each concept applies, especially caching, partitioning, and optimization techniques.
