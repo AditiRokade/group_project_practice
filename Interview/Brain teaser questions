@@ -1,0 +1,39 @@
+𝗦𝗤𝗟
+How do you use Common Table Expressions (CTEs) for recursive queries?
+Explain the difference between INNER JOIN, LEFT JOIN, and FULL OUTER JOIN with examples.
+How would you detect gaps in a sequence of IDs or dates using SQL?
+
+𝗣𝘆𝘁𝗵𝗼𝗻
+What is the role of generators in processing streaming data pipelines?
+How would you handle exceptions in a Python ETL workflow and ensure the pipeline doesn't break?
+How do you use context managers for file and resource management in ETL scripts?
+
+𝗣𝘆𝘀𝗽𝗮𝗿𝗸
+How does repartition() differ from coalesce() in PySpark, and when should you use each?
+How do you implement custom UDFs in PySpark and what are their limitations?
+What are broadcast joins in Spark and how do they optimize join operations?
+
+𝗔𝘇𝘂𝗿𝗲 𝗗𝗮𝘁𝗮𝗯𝗿𝗶𝗰𝗸𝘀
+How do you securely access secrets and credentials in Databricks notebooks?
+How would you schedule and manage dependencies between multiple Databricks jobs?
+How do you track lineage and auditing for data processed in Databricks?
+
+𝗔𝘇𝘂𝗿𝗲 𝗗𝗮𝘁𝗮 𝗙𝗮𝗰𝘁𝗼𝗿𝘆
+How do you implement parameterized pipelines and datasets in ADF for reusability?
+How do you set up alerts and failure notifications in ADF?
+How would you perform dynamic data movement across multiple source systems using ADF?
+
+𝗖𝗜/𝗖𝗗
+What is Infrastructure as Code (IaC), and how do you use it for deploying data pipelines?
+How would you implement unit and integration testing in a data CI/CD pipeline?
+How do you manage secrets and credentials securely in CI/CD workflows for data jobs?
+
+𝗗𝗮𝘁𝗮 𝗪𝗮𝗿𝗲𝗵𝗼𝘂𝘀𝗶𝗻𝗴
+What is denormalization, and when is it preferred in a warehouse environment?
+How would you partition a large fact table for performance gains?
+What are the key differences between OLTP and OLAP systems?
+
+𝗗𝗮𝘁𝗮 𝗠𝗼𝗱𝗲𝗹𝗶𝗻𝗴
+How do you model historical data changes effectively using Type 2 SCD?
+What are junk dimensions, and when would you use them?
+How do you ensure data integrity and consistency in a dimensional model?
